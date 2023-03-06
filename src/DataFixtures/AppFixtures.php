@@ -15,7 +15,6 @@ class AppFixtures extends Fixture
         $faker = Factory::create('fr_FR');
 
         for ($i = 0; $i < 10; $i++) {
-
             $employe = new Employe();
             $employe->setNom($faker->lastName());
             $employe->setPrenom($faker->firstName());
