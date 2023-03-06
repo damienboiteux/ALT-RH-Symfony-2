@@ -12,8 +12,6 @@ class HomeController extends AbstractController
     public function index(): Response
     {
 
-        // Model ( lecture dans la BDD )
-
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
         ]);
