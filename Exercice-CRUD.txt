@@ -1,0 +1,29 @@
+Service (dans lequel travaille un employé)
+
+id, nom, batiment ( 3 caractères ), etage
+
+
+- liste des services
+- détails d'un service
+- supprimer un service 
+
+A faire :
+
+- créer l'entité Service :
+-- ne pas oublier les migrations
+-- ajouter un jeu d'essais (fixtures) : 2 services (Comptabilité, Direction)
+
+- créer le Controller 
+-- créer les routes (index,show,edit,delete,new)
+-- pour chaque route :
+---- index : liste des services
+---- show : détails d'un service 
+---- delete: suppression d'un service 
+
+- vues :
+-- index
+-- show
+-- mettre à jour menu de navigation
+
+
+
