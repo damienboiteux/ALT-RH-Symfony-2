@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact
+{% endblock %}
+
+{% block body %}
+	<h1>Formulaire de contact</h1>
+
+	{{ form(formulaire) }}{# {{ form_start(formulaire) }}
+							{{ form_widget(formulaire) }}
+							<button class="btn btn-primary">Valider</button>
+							{{ form_end(formulaire) }} #}
+
+
+		{# {{ form_start(formulaire) }}
+					<div class="row">
+						<div class="col">{{ form_widget(formulaire.titre) }}</div>
+						<div class="col">{{ form_widget(formulaire.pseudo) }}</div>
+					</div>
+					<div class="row">
+						<div class="col">{{ form_widget(formulaire.email) }}</div>
+						<div class="col">{{ form_widget(formulaire.message) }}</div>
+					</div>
+					<button class="btn btn-primary">Valider</button>
+					{{ form_end(formulaire) }} #}
+
+
+	{% endblock %}
