@@ -21,9 +21,7 @@ class EmployeController extends AbstractController
     #[Route('/employes/new', name: 'app_employe_new', methods: ['GET', 'POST'])]
     public function new(): Response
     {
-        return $this->render('employe/index.html.twig', [
-            'controller_name' => 'EmployeController',
-        ]);
+        return $this->render('employe/new.html.twig', []);
     }
 
     #[Route('/employes/{id}', name: 'app_employe_show', methods: ['GET'])]
