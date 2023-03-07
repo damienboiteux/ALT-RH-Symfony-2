@@ -9,21 +9,21 @@ id, nom, batiment ( 3 caractères ), etage
 
 A faire :
 
-- créer l'entité Service :
--- ne pas oublier les migrations
--- ajouter un jeu d'essais (fixtures) : 2 services (Comptabilité, Direction)
+OK - créer l'entité Service 
+OK -- ne pas oublier les migrations
+OK -- ajouter un jeu d'essais (fixtures) : 2 services (Comptabilité, Direction)
 
-- créer le Controller 
--- créer les routes (index,show,edit,delete,new)
+OK - créer le Controller 
+OK -- créer les routes (index,show,edit,delete,new)
 -- pour chaque route :
 ---- index : liste des services
 ---- show : détails d'un service 
 ---- delete: suppression d'un service 
 
 - vues :
--- index
--- show
--- mettre à jour menu de navigation
+OK -- index
+OK -- show
+OK -- mettre à jour menu de navigation
 
 
 

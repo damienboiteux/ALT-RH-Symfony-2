@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Détails d'un service
+{% endblock %}
+
+{% block body %}
+
+	<h1>Détails d'un service</h1>
+
+	<table class="table">
+		<tr>
+			<td>Id</td>
+			<td>{{service.id}}</td>
+		</tr>
+		<tr>
+			<td>Nom</td>
+			<td>{{service.nom}}</td>
+		</tr>
+		<tr>
+			<td>Bâtiment</td>
+			<td>{{service.batiment}}</td>
+		</tr>
+		<tr>
+			<td>Etage</td>
+			<td>{{service.etage}}</td>
+		</tr>
+	</table>
+
+	<a href="{{ path('app_service_index') }}">Retour à la liste</a>
+
+
+{% endblock %}
