@@ -2,19 +2,19 @@
 
 namespace App\Controller;
 
+use App\Entity\Employe;
 use App\Repository\EmployeRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class EmployeController extends AbstractController
 {
     #[Route('/employes', name: 'app_employe_index', methods: ['GET'])]
     public function index(EmployeRepository $employeRepository): Response
     {
-        $employes = $employeRepository->findAll();
         return $this->render('employe/index.html.twig', [
-            'employes'  =>  $employes,
+            'employes'  =>  $employeRepository->findAll(),
         ]);
     }
 
@@ -27,15 +27,17 @@ class EmployeController extends AbstractController
     }
 
     #[Route('/employes/{id}', name: 'app_employe_show', methods: ['GET'])]
-    public function show(): Response
+    public function show(Employe $employe): Response
     {
-        return $this->render('employe/index.html.twig', [
-            'controller_name' => 'EmployeController',
+        // $employe->setNom(strtoupper($employe->getNom()));
+        // $employe->setPrenom("**************");
+        return $this->render('employe/show.html.twig', [
+            'employe' => $employe,
         ]);
     }
 
     #[Route('/employes/{id}/edit', name: 'app_employe_edit', methods: ['GET', 'POST'])]
-    public function edit(): Response
+    public function edit(int $id): Response
     {
         return $this->render('employe/index.html.twig', [
             'controller_name' => 'EmployeController',
@@ -43,10 +45,9 @@ class EmployeController extends AbstractController
     }
 
     #[Route('/employes/{id}/delete', name: 'app_employe_delete', methods: ['GET'])]
-    public function delete(): Response
+    public function delete(EmployeRepository $employeRepository, Employe $employe): Response
     {
-        return $this->render('employe/index.html.twig', [
-            'controller_name' => 'EmployeController',
-        ]);
+        $employeRepository->remove($employe, true);
+        return $this->redirectToRoute('app_employe_index');
     }
 }

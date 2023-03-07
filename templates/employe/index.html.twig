@@ -21,14 +21,14 @@
 					<td>{{employe.nom}}</td>
 					<td>{{employe.prenom}}</td>
 					<td>
-						<a href="">Détails</a>
-						<a href="">Modifier</a>
-						<a href="">Supprimer</a>
+						<a href="{{ path('app_employe_show', {'id': employe.id } ) }}">Détails</a>
+						<a href="{{ path('app_employe_edit', {'id': employe.id } ) }}">Modifier</a>
+						<a href="{{ path('app_employe_delete', {'id': employe.id } ) }}">Supprimer</a>
 					</td>
 				</tr>
 			{% endfor %}
 		</tbody>
 	</table>
 
-	<a class="btn btn-primary" href="">Ajouter un employé</a>
+	<a class="btn btn-primary" href="{{ path('app_employe_new') }}">Ajouter un employé</a>
 {% endblock %}

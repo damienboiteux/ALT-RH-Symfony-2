@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Détails d'un employé
+{% endblock %}
+
+{% block body %}
+
+	<h1>Détails d'un employé</h1>
+
+	<table class="table">
+		<tr>
+			<td>Id</td>
+			<td>{{employe.id}}</td>
+		</tr>
+		<tr>
+			<td>Nom</td>
+			<td>{{employe.nom}}</td>
+		</tr>
+		<tr>
+			<td>Prénom</td>
+			<td>{{employe.prenom}}</td>
+		</tr>
+	</table>
+
+	<a href="{{ path('app_employe_index') }}">Retour à la liste</a>
+
+
+{% endblock %}
