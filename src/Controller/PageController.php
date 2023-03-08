@@ -17,8 +17,9 @@ class PageController extends AbstractController
 
         $formulaire->handleRequest($request);
 
-        if ($formulaire->isSubmitted()) {
-            dump($formulaire->getData());
+        if ($formulaire->isSubmitted() && $formulaire->isValid()) {
+            $data = $formulaire->getData();
+            dump($data);
         }
 
 
