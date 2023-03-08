@@ -2,6 +2,7 @@ Service (dans lequel travaille un employé)
 
 id, nom, batiment ( 3 caractères ), etage
 
+*********************  Exercice 1 **********************
 
 - liste des services
 - détails d'un service
@@ -25,5 +26,18 @@ OK -- index
 OK -- show
 OK -- mettre à jour menu de navigation
 
+*********************  Exercice 2 **********************
+
+- ajouter un service
+- modifier un service 
+
+- création du formulaire (ServiceType) 
+-- nom : texte avec espaces et tirets (entre 3 et 32 caractères)
+-- batiment : 3 caractères maxi
+-- etage : entier
+
+- controller :
+-- new : ajouter l'utilisation du formulaire (affichage, contrôle des données et enregistrement en BDD)
+-- edit : ajouter l'utilisation du formulaire (affichage, contrôle des données et enregistrement en BDD)
 
 
