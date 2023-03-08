@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Modif. emlpoyé
+{% endblock %}
+
+{% block body %}
+
+	<h1>Modification d'un employé</h1>
+
+	{{ form(formulaire) }}
+
+
+		<a href="{{ path('app_employe_index') }}">Retour à la liste</a>
+
+	{% endblock %}
