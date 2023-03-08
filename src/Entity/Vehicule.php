@@ -14,7 +14,7 @@ class Vehicule
     private ?int $id = null;
 
     #[ORM\Column(length: 9)]
-    private ?string $immarticulation = null;
+    private ?string $immatriculation = null;
 
     #[ORM\Column]
     private ?int $kilometrage = null;
@@ -27,14 +27,14 @@ class Vehicule
         return $this->id;
     }
 
-    public function getImmarticulation(): ?string
+    public function getImmatriculation(): ?string
     {
-        return $this->immarticulation;
+        return $this->immatriculation;
     }
 
-    public function setImmarticulation(string $immarticulation): self
+    public function setImmatriculation(string $immatriculation): self
     {
-        $this->immarticulation = $immarticulation;
+        $this->immatriculation = $immatriculation;
 
         return $this;
     }
