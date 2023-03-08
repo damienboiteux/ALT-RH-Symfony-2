@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Service;
+use App\Form\ServiceType;
 use App\Repository\ServiceRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,10 +21,19 @@ class ServiceController extends AbstractController
     }
 
     #[Route('/services/new', name: 'app_service_new', methods: ['GET', 'POST'])]
-    public function new(): Response
+    public function new(Request $request, ServiceRepository $serviceRepository): Response
     {
-        return $this->render('service/index.html.twig', [
-            'controller_name' => 'ServiceController',
+        $service = new Service();
+        $formulaire = $this->createForm(ServiceType::class, $service);
+        $formulaire->handleRequest($request);
+
+        if ($formulaire->isSubmitted() && $formulaire->isValid()) {
+            $serviceRepository->save($service, true);
+            return $this->redirectToRoute('app_service_index');
+        }
+
+        return $this->render('service/new.html.twig', [
+            'formulaire' => $formulaire->createView(),
         ]);
     }
 
@@ -35,10 +46,19 @@ class ServiceController extends AbstractController
     }
 
     #[Route('/services/{id}/edit', name: 'app_service_edit', methods: ['GET', 'POST'])]
-    public function edit(int $id): Response
+    public function edit(Service $service, Request $request, ServiceRepository $serviceRepository): Response
     {
-        return $this->render('service/index.html.twig', [
-            'controller_name' => 'ServiceController',
+
+        $formulaire = $this->createForm(ServiceType::class, $service);
+        $formulaire->handleRequest($request);
+
+        if ($formulaire->isSubmitted() && $formulaire->isValid()) {
+            $serviceRepository->save($service, true);
+            return $this->redirectToRoute('app_service_index');
+        }
+
+        return $this->render('service/new.html.twig', [
+            'formulaire' => $formulaire->createView(),
         ]);
     }
 
