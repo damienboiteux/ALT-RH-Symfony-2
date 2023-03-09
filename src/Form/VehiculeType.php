@@ -2,9 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\Marque;
 use App\Entity\Vehicule;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class VehiculeType extends AbstractType
@@ -12,6 +14,11 @@ class VehiculeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('marque', EntityType::class, [
+                'class'         =>  Marque::class,
+                'choice_label'  =>  'nom',
+                'placeholder'   =>  'Choisir une marque',
+            ])
             ->add('immatriculation')
             ->add('kilometrage')
             ->add('annee');

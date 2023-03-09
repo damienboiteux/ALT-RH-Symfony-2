@@ -22,6 +22,9 @@ class Vehicule
     #[ORM\Column(length: 4)]
     private ?string $annee = null;
 
+    #[ORM\ManyToOne(inversedBy: 'vehicules')]
+    private ?Marque $marque = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Vehicule
     public function setAnnee(string $annee): self
     {
         $this->annee = $annee;
+
+        return $this;
+    }
+
+    public function getMarque(): ?Marque
+    {
+        return $this->marque;
+    }
+
+    public function setMarque(?Marque $marque): self
+    {
+        $this->marque = $marque;
 
         return $this;
     }
