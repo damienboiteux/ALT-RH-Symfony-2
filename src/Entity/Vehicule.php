@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\VehiculeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: VehiculeRepository::class)]
 class Vehicule
@@ -14,12 +15,16 @@ class Vehicule
     private ?int $id = null;
 
     #[ORM\Column(length: 9)]
+    #[Assert\NotBlank(message: "Champ obligatoire")]
+    #[Assert\Regex(pattern: '/^[A-Z][A-Z]-[0-9]{3}-[A-Z][A-Z]$/', message: 'Format incorrect')]
     private ?string $immatriculation = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(message: "Champ obligatoire")]
     private ?int $kilometrage = null;
 
     #[ORM\Column(length: 4)]
+    #[Assert\NotBlank(message: "Champ obligatoire")]
     private ?string $annee = null;
 
     #[ORM\ManyToOne(inversedBy: 'vehicules')]
