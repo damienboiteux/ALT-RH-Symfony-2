@@ -20,6 +20,16 @@
 			<td>Prénom</td>
 			<td>{{employe.prenom}}</td>
 		</tr>
+		<tr>
+			<td>Service</td>
+			<td>
+				{% if employe.service %}
+					{{ employe.service.nom }}
+				{% else %}
+					<strong>Aucun</strong>
+				{% endif %}
+			</td>
+		</tr>
 	</table>
 
 	<a href="{{ path('app_employe_index') }}">Retour à la liste</a>
