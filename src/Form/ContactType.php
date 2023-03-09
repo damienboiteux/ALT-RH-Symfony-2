@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -68,6 +70,18 @@ class ContactType extends AbstractType
                     ])
                 ]
             ])
+            ->add('destinataire', ChoiceType::class, [
+                'label'     => 'Service destinataire',
+                'choices'   => [
+                    'Comptabilité'  =>  1,
+                    'SAV'           =>  2,
+                    'Logistique'    =>  3,
+                ],
+                'expanded'  =>  true,
+                'label_attr' => [
+                    'class' => 'radio-inline',
+                ]
+            ])
             ->add('message', TextareaType::class, [
                 'data' => 'bla bla',
                 'required'      =>  false,
@@ -82,6 +96,15 @@ class ContactType extends AbstractType
                         'maxMessage' => '{{ limit }} caractères maximum',
                     ])
                 ]
+            ])
+            ->add('consentement', CheckboxType::class, [
+                'label' =>  'J\'accepte les conditions',
+
+            ])
+            ->add('consentement2', CheckboxType::class, [
+                'label' =>  'J\'accepte d\'être contacté',
+                'required' => false,
+
             ])
             ->add('submit', SubmitType::class);
     }
